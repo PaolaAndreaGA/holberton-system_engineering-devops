@@ -1,2 +1,2 @@
 #!/bin/bash
-find . - mindepth1 1 -type f | wc -l
+find ./* -type d -print | wc -l
