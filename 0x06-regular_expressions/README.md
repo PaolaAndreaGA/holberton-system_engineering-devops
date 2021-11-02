@@ -1,99 +1,99 @@
-# Expresiones Regulares. Conócelas y Piérdeles el miedo
+# Regular Expressions. Get to know them and Lose your fear of them
 
-PublishedHace 13 años
+Published13 years ago
 
-Última actualizaciónHace 9 años
+Last updated9 years ago
 
-Una expresión regular es una cadena de caracteres que es utilizada para describir o encontrar patrones dentro de otros strings, en base al uso de delimitadores y ciertas reglas de sintaxis. La mayoría de los programadores no se dan el tiempo de aprender a aplicar las expresiones regulares, lo cual es una lástima ya que son de gran utilidad. Cuando aprendas a aplicar las expresiones regulares, te darás cuenta de lo poderosas que son, la gran cantidad de problemas que pueden resolver, y lo mucho que aumentará tu productividad al programar.
+A regular expression is a string of characters that is used to describe or find patterns within other strings, based on the use of delimiters and certain syntax rules. Most programmers don't take the time to learn how to apply regular expressions, which is a pity as they are very useful. Once you learn how to apply regular expressions, you will realise how powerful they are, how many problems they can solve, and how much they will increase your programming productivity.
 
-Si es la primera vez que te acercas al concepto de expresiones regulares –también conocidas como “regex” en el argot de la programación– te animará saber que muy probablemente ya las has usado aún sin saberlo, al menos en su vertiente más básica. Por ejemplo, el comando dir *.txt para obtener un listado de todos los archivos con extensión txt es una forma muy sencilla de expresión regular, donde el patrón * coincide con cualquier cadena de caracteres.
+If you're new to the concept of regular expressions - also known as "regex" in programming jargon - you'll be encouraged to know that you've probably already used them without even knowing it, at least in their most basic form. For example, the command dir *.txt to get a list of all files with a txt extension is a very simple form of regular expression, where the * pattern matches any string of characters.
 
-Veamos el ejemplo sencillo de un patrón y las cadenas con las que podría coincidir:
+Let's look at a simple example of a pattern and the strings it might match:
 
-am // este es nuestro patrón. Si lo comparamos con:
-am // coincide
-ambicion // coincide
-campamento // coincide
-mano // no coincide
+am // this is our pattern. If we match it with:
+am // matches
+ambition // matches
+camp // matches
+mano // does not match
 
-Se trata sencillamente de ir cotejando un patrón (pattern) -que en este ejemplo es la secuencia de letras ‘am’- con una cadena (subject) y ver si dentro de ella existe la misma secuencia. Si existe, decimos que hemos encontrado una coincidencia (match).
+It is simply a matter of matching a pattern - which in this example is the sequence of letters 'am' - with a string (subject) and see if the same sequence exists within it. If it exists, we say that we have found a match.
 
-Estos ejemplos son muy sencillos ya que utilizan patrones literales, es decir que solo encontramos coincidencias cuando hay una ocurrencia exacta. De hecho, normalmente no es necesario usar expresiones regulares si vamos a textos exactos. Todos los lenguajes tienen funciones de string para este propósito. El poder de las expresiones regulares radica precisamente en la flexibilidad de los patrones, que pueden ser confrontados con cualquier palabra o cadena de texto que tenga una estructura conocida.
+These examples are very simple as they use literal patterns, i.e. we only find matches when there is an exact occurrence. In fact, it is usually not necessary to use regular expressions if we go to exact texts. All languages have string functions for this purpose. The power of regular expressions lies precisely in the flexibility of the patterns, which can be matched against any word or string that has a known structure.
 
-Caracteres y metacaracteres
-Nuestro patrón puede estar formado por un conjunto de caracteres (letras, números o signos) acompañado de metacaracteres que representan a otros caracteres o permiten una búsqueda contextual.
-Los metacaracteres reciben este nombre porque no se representan a ellos mismos, sino que son interpretados de una manera especial. Por ejemplo, a través de metacaracteres podemos definir diferentes condiciones tales como agrupaciones, alternativas, comodines, multiplicadores, etcétera.
 
-Los metacaracteres más usados son: . * ? + [ ] ( ) { } ^ $ | \.
+Characters and meta-characters
+Our pattern can consist of a set of characters (letters, numbers or signs) accompanied by metacharacters that represent other characters or allow a contextual search.
+Metacharacters are so called because they do not represent themselves, but are interpreted in a special way. For example, through metacharacters we can define different conditions such as groupings, alternatives, wildcards, multipliers and so on.
 
-A continuación los explicamos de forma detallada.
+The most commonly used metacharacters are: . * ? + [ ] ( ) { } ^ $ | \.
 
-Metacaracteres de posicionamiento, o anclas
-Los signos ‘^’ y ‘$’ sirven para indicar donde debe estar situado nuestro patrón dentro de la cadena para considerar que existe una coincidencia.Cuando usamos el signo ‘^’ queremos decir que el patrón debe aparecer al principio de la cadena de caracteres comparada. Cuando usamos el signo ‘$’ estamos indicando que el patrón debe aparecer al final del conjunto de caracteres. O más precisamente, antes de un caracter de nueva línea.
+These are explained in detail below.
 
-Ejemplo:
+Positioning metacharacters, or anchors
+The '^' and '$' signs are used to indicate where our pattern must be placed in the string to be considered a match. When we use the '^' sign we mean that the pattern must appear at the beginning of the compared string. When we use the '$' sign we mean that the pattern must appear at the end of the character set. Or more precisely, before a newline character.
+
+Example:
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion1.gif)
 
-De la misma forma, la expresión ^$ se puede utilizar para encontrar líneas vacías, donde el inicio de una línea es inmediatamente seguido por el final de ésta.
+In the same way, the expression ^$ can be used to find empty lines, where the beginning of a line is immediately followed by the end of the line.
 
-Los metacaracteres ‘^’ y ‘$’ también conocidos como anclas (anchors) ya que no representan otros caracteres, sino posiciones en una cadena.
+The metacharacters '^' and '$' are also known as anchors because they do not represent other characters, but positions in a string.
 
-Escapando caracteres
-Puede suceder que necesitemos incluir en nuestro patrón algún metacaracter como signo literal, es decir, por si mismo y no por lo que representa. Para indicar esta finalidad usaremos como caracter de escape a la barra invertida ‘\’. Como regla general, la barra invertida \ convierte en normales a los caracteres especiales.
+Escaping characters
+It may happen that we need to include in our pattern a metacharacter as a literal sign, that is, for itself and not for what it represents. To indicate this purpose, we will use the backslash character 'back-slash' as an escape character. As a general rule, the backslash '\' converts special characters to normal.
 
-Ejemplo:
+Example:
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion2.gif)
 
-El comodín ‘.’
-El metacaracter ‘.’ (punto) es el comodín por excelencia. Un punto en el patrón representa cualquier caracter excepto nueva línea.
+The wildcard '.
+The metacharacter '.' (dot) is the ultimate wildcard. A dot in the pattern represents any character except newline.
 
-Ejemplo:
+Example:
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion2a.gif)
 
-Observa en el ejemplo anterior como el patrón coincide con cualquier caracter (incluido el de espacio en blanco) seguido de una l.
+Notice in the example above how the pattern matches any character (including the whitespace character) followed by an l.
 
-Clases de caracteres
-Los corchetes ‘[ ]’ definen una clase de caracteres y permiten encontrar cualquiera de los caracteres dentro de un grupo. Imaginemos que queremos encontrar la palabra “niño”, pero también queremos encontrar en caso de que la hayan escrito con n el lugar de ñ. Podríamos lograr esto con una clase de caracter, de forma que la expresión regular ni[ñn]o se interpretaría como “n, seguida de i, seguida ya sea de ñ o n, seguida de o”.
+Character classes
+The square brackets '[ ]' define a character class and allow you to find any of the characters within a group. Let's imagine that we want to find the word "child", but we also want to find in case it was written with n instead of ñ. We could achieve this with a character class, so that the regular expression ni[ñn]o would be interpreted as "n, followed by i, followed by either ñ or n, followed by o".
 
-La mayoría de los metacaracteres pierden su significado al ser utilizados dentro de clases de caracteres. Es así que la expresión [a.] se refiere literalmente a la letra a y al caracter punto. Un caso especial es el caracter ‘^’, que al ser utilizado al comienzo de una clase de caracteres significa negación. Es decir que la expresión [^a] se refiere a cualquier cadena que NO contenga la letra a. Este significado se pierde si el ‘^’ no está al inicio de la clase de caracteres, así que la expresión [a^] se refiere a la letra a y al caracter ^ literalmente.
+Most metacharacters lose their meaning when used within character classes. Thus the expression [a.] literally refers to the letter a and the character dot. A special case is the character '^', which when used at the beginning of a character class means negation. That is, the expression [^a] refers to any string that does NOT contain the letter a. This meaning is lost if the '^' is not at the beginning of the character class, so the expression [a^] refers to the letter a and the ^ character literally.
 
-Así como la mayoría de los metacaracteres pierden su significado especial al ser utilizados dentro de corchetes, existe un caracter que solamente al ser utilizado dentro de corchetes adquiere un significado especial. Este es el caracter ‘-‘ (guión), el cual se utiliza dentro de una clase de caracteres para indicar un rango. Por ejemplo, si queremos referirnos a un caracter hexadecimal, en lugar de definir la clase [01234567890abcdefABCDEF] utilizaríamos [0-9a-fA-F], que es mucho más conveniente.
+Just as most metacharacters lose their special meaning when used inside square brackets, there is one character that only when used inside square brackets acquires a special meaning. This is the '-' (hyphen) character, which is used within a character class to indicate a range. For example, if we want to refer to a hexadecimal character, instead of defining the class [0123456767890abcdefABCDEF] we would use [0-9a-fA-F], which is much more convenient.
 
-Veamos ejemplos con algunas clases de caracteres:
+Let's see examples with some character classes:
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion_x.gif)
 
-Algunos lenguajes de programación definen atajos para clases de caracteres que son comúnmente utilizadas. La siguiente tabla muestra algunos de los atajos más comunes:
+Some programming languages define shortcuts for commonly used character classes. The following table shows some of the most common shortcuts:
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion4.gif)
 
-Delimitación
-Los paréntesis se pueden utilizar para definir un subconjunto dentro de una expresión. Por ejemplo, para capturar la parte correspondiente al hostname de un url, utilizaría una expresión como http://([^/]) lo que estoy diciendo con esta expresión es que primero tengo la secuencia de caracteres “http://” y seguido de esto tengo una subexpresión, la cual estoy delimitando con los paréntesis, y aplico una expresión a este segmento en específico, en este caso estoy buscando una cadena que coincide con cualquier caracter excepto el ‘/’.
+Delimitation
+Parentheses can be used to define a subset within an expression. For example, to capture the hostname part of a url, I would use an expression like http://([^/]). What I am saying with this expression is that first I have the character sequence "http://" and followed by this I have a sub-expression, which I am delimiting with the parentheses, and I apply an expression to this specific segment, in this case I am looking for a string that matches any character except the '/'.
+Alternatives
+The metacharacter '|' (vertical bar) stands for "or". It allows you to search for different alternative expressions (or rather subexpressions), within a single expression.
 
-Alternativas
-El metacaracter ‘|’ (barra vertical) significa “o” (or). Permite buscar diferentes alternativas de expresiones (más bien subexpresiones), dentro de una sola expresión.
+That definition sounded very convoluted, so let's explain it with an example. Let's imagine that we have the expression Dona and the expression Don. Each is a separate expression, but if we define the expression Don|Doña then we have a single expression that matches either of the two subexpressions.
 
-Esa definición sonó muy enredada, así que mejor expliquémoslo con un ejemplo. Imaginemos que tenemos la expresión Doña y la expresión Don. Cada una es una expresión separada, pero si definimos la expresión Don|Doña entonces tenemos una sola expresión que coincide con cualquiera de las dos subexpresiones.
+We can also use parentheses to delimit the scope of an alternative. In this case, the expression Do(n|ña) would give the same result as the expression Don|Doña. However, we must be careful with abusing the use of parentheses, because we can end up with expressions that are difficult to understand, and therefore to maintain.
 
-También podemos utilizar los paréntesis para delimitar el alcance de una alternativa. En este caso, la expresión Do(n|ña) nos daría el mismo resultado que la expresión Don|Doña. Sin embargo, hay que tener cuidado con abusar del uso de paréntesis, porque podemos terminar con expresiones difíciles de entender, y por lo tanto de mantener.
+Quantifiers or Multipliers
+The metacharacters we have seen tell us if our pattern matches the string to be compared. But what if we want to compare with our string a pattern that can be zero, one or more times? For this we use a special kind of metacharacters: multipliers.
 
-Cuantificadores o Multiplicadores
-Los metacaracteres que hemos visto nos informan si nuestro patrón coincide con la cadena a comparar. Pero ¿y si queremos comparar con nuestra cadena un patrón que puede estar cero, una o mas veces? Para esto usamos un tipo especial de metacaracteres: los multiplicadores.
-
-Estos metacaracteres se aplican al caracter (o agrupación) que les precede, e indican el número de veces que se puede encontrar dicho elemento para que haya una ocurrencia. Los tres metacaracteres cuantificadores son ‘?’ ‘*’ ‘+’. El ‘?’ indica una multiplicidad de 0 o 1, el ‘*’ indica una multiplicidad de 0 a n, y el ‘+’ indica una multiplicidad de 1 a n. Los siguientes ejemplos dejan esto más claro:
+These metacharacters are applied to the character (or grouping) that precedes them, and indicate the number of times that element can be encountered for there to be an occurrence. The three quantifier metacharacters are '?' '*' '+'. The '?' indicates a multiplicity of 0 or 1, the '*' indicates a multiplicity of 0 to n, and the '+' indicates a multiplicity of 1 to n. The following examples make this clearer:
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion5.gif)
-También es posible indicar la multiplicidad exacta que es aceptable para un cuantificador. Para esto se utilizan las llaves ‘{ }’, y la sintaxis es primero indicar el valor mínimo de la multiplicidad, seguido de una coma, y luego el valor máximo de la multiplicidad.
+It is also possible to indicate the exact multiplicity that is acceptable for a quantifier. The braces '{ }' are used for this, and the syntax is to first indicate the minimum value of the multiplicity, followed by a comma, and then the maximum value of the multiplicity.
 
 ![](http://www.sg.com.mx/images/stories/200705/programacion6.gif)
-Conclusión
-En este artículo hemos estudiado la sintaxis y metacaracteres utilizados para definir expresiones regulares. Ahora lo que queda es que escojas el lenguaje de programación de tu preferencia y comiences a experimentar con el uso de expresiones regulares. Te garantizo que es una habilidad que te será de gran utilidad.
+Conclusion
+In this article we have studied the syntax and metacharacters used to define regular expressions. Now all that remains is for you to choose the programming language of your choice and start experimenting with the use of regular expressions. I guarantee it is a skill that will be of great use to you.
 
-**Referencias**
-• Autor anónimo. “Expresiones regulares”.
-**www.ignside.net/man/php/regex.php**
-• Mike Malone. “The bare minimum that every programmer should know about regular expressions.
+**References
+- Anonymous author. "Regular Expressions.  
+**www.ignside.net/man/php/regex.php**  
+- Mike Malone. "The bare minimum that every programmer should know about regular expressions".  
 **http://immike.net/blog**
