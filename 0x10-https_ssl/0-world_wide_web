@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# display information about subdomains
+
+subdomains=( "www" "lb-01" "web-01" "web-02" )
+
+if [ $# -eq 2 ]; then
+   dig "$2.$1" | grep -A1 'ANSWER SECTION:' | grep -v 'ANSWER' | awk -v subd="$2" '{print "The subdomain "subd" is a "$4" record and points to "$5}'
+else
+	for index in "${subdomains[@]}"; do
+	    	  dig "$index.$1" | grep -A1 'ANSWER SECTION:' | grep -v 'ANSWER' | awk -v subd="$index" '{print "The subdomain "subd" is a "$4" record and points to "$5}'
+ 	done
+fi
