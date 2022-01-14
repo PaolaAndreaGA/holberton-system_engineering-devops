@@ -46,4 +46,4 @@ frontend www-https
 backend webservers
         balance roundrobin
         server 3426-web-01 34.138.47.31:80 check
-        server 3426-web-02 54.226.1.15 :80 check
+        server 3426-web-02 54.226.1.15:80 check
