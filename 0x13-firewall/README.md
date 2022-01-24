@@ -6,9 +6,8 @@ From Wikipedia, the free encyclopedia
 
 Part of a series on
 
-[Information security](https://en.wikipedia.org/wiki/Information_security "Information security")
-
-[
+[Information security](https://en.wikipedia.org/wiki/Information_security "Information 
+[https://www.youtube.com/watch?v=HMqgVXSvwGo]
 
 In  [computing](https://en.wikipedia.org/wiki/Computing "Computing"), a  **firewall**  is a  [network security](https://en.wikipedia.org/wiki/Network_security "Network security")  system that  [monitors](https://en.wikipedia.org/wiki/Network_monitoring "Network monitoring")  and controls incoming and outgoing  [network traffic](https://en.wikipedia.org/wiki/Network_traffic "Network traffic")  based on predetermined security rules.[[1]](https://en.wikipedia.org/wiki/Firewall_%28computing%29#cite_note-1)  A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the  [Internet](https://en.wikipedia.org/wiki/Internet "Internet").[[2]](https://en.wikipedia.org/wiki/Firewall_%28computing%29#cite_note-Oppliger_1997_94-2)
 
