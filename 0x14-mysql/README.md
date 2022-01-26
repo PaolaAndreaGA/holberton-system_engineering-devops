@@ -79,3 +79,6 @@ Having found MySQL 5.7 in our system, we are going to install MySQL 5.7 client, 
 
 ```
 sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7* mysql-server=5.7*
+
+## How To Set Up Replication in MySQL
+https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql 
