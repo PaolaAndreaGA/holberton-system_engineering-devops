@@ -22,4 +22,3 @@ if __name__ == '__main__':
             if task.get('userId') == int(uid):
                 write.writerow([uid, name, str(task.get('completed')),
                                 task.get('title')])
-
