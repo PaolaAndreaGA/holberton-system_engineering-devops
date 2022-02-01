@@ -11,8 +11,7 @@ def counter(completed=None):
     for arg in todo:
         if arg.get('completed') is True:
             cont += 1
-            return cont
-
+    return cont
 
 if __name__ == "__main__":
     import requests
