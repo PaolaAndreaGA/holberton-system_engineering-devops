@@ -20,4 +20,3 @@ if __name__ == '__main__':
             taskwriter.writerow([int(userId), user.get('username'),
                                  task.get('completed'),
                                  task.get('title')])
- 
