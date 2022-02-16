@@ -9,9 +9,9 @@ import requests
 def number_of_subscribers(subreddit):
     """returns the number of subscribers for a given subreddit"""
 
-    url = 'http://www.reddit.com/r/' + subreddit + '/about.json'
+    URL = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     try:
-        req = requests.get(url,
+        req = requests.get(URL,
                            headers={'User-Agent': 'My User Agent 1.0'},
                            allow_redirects=False).json()
         return req['data'].get('subscribers')
