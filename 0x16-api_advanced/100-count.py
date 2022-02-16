@@ -9,8 +9,7 @@ def count_words(subreddit, word_list):
     """Searches for keywords in hot titles"""
     URL = 'https://www.reddit.com/r/' + subreddit + '/hot.json'
     headers = {'User-agent': 'My User Agent 4.0'}
-    try:
-        req = requests.get(URL, headers=headers)
-        request_data = req.json()
-    except Exception:
-        return None
+    req = requests.get(URL, headers=headers)
+    if req.status_code != 200:
+        return(None)
+    request_data = req.json()
